@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Auth App</title>
+    <!-- Using Tailwind CSS via CDN for clean, minimal styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-xl font-bold text-indigo-600">My App</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    {% if session.get('user_id') %}
+                        <span class="text-sm text-gray-600">{{ session.get('user_email') }}</span>
+                        <a href="{{ url_for('logout') }}" class="text-sm text-gray-500 hover:text-gray-700 font-medium">Logout</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="text-sm text-gray-500 hover:text-gray-700 font-medium">Login</a>
+                        <a href="{{ url_for('register') }}" class="text-sm bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-medium transition">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Flash Messages Block -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="max-w-md mx-auto mb-6">
+                {% for category, message in messages %}
+                    {% set bg_color = 'bg-blue-50 border-blue-200 text-blue-700' %}
+                    {% if category == 'success' %}
+                        {% set bg_color = 'bg-green-50 border-green-200 text-green-700' %}
+                    {% elif category == 'danger' %}
+                        {% set bg_color = 'bg-red-50 border-red-200 text-red-700' %}
+                    {% elif category == 'warning' %}
+                        {% set bg_color = 'bg-yellow-50 border-yellow-200 text-yellow-700' %}
+                    {% endif %}
+                    <div class="border px-4 py-3 rounded-md mb-2 {{ bg_color }}" role="alert">
+                        <span class="block sm:inline text-sm">{{ message }}</span>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Page Specific Content -->
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
