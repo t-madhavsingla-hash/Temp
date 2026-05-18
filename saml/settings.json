@@ -1,0 +1,22 @@
+{
+    "strict": false,
+    "debug": true,
+    "sp": {
+        "entityId": "https://temp-8g5m.onrender.com/saml/metadata",
+        "assertionConsumerService": {
+            "url": "https://temp-8g5m.onrender.com/saml/acs",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+        },
+        "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+        "x509cert": "",
+        "privateKey": ""
+    },
+    "idp": {
+        "entityId": "https://accounts.google.com/o/saml2?idpid=C01c4ol3y",
+        "singleSignOnService": {
+            "url": "https://accounts.google.com/o/saml2/idp?idpid=C01c4ol3y",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "x509cert": "MIIDdDCCAlygAwIBAgIGAZ47HKQXMA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoTC0dvb2dsZSBJbmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGDAWBgNVBAsTD0dvb2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwHhcNMjYwNTE4MTI0MzEyWhcNMzEwNTE3MTI0MzEyWjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxYlvC4NpAM1rrBPzNI/AgpWVZn+tRNKIWQozo+OZhzHc14h17rC0YF+aQyQHBZNkV7UmT6fjKZ87j9Xr+MhevassDMN1o1X4N4uUZRJlWzTXxBZRkpWi0r/Jb4oFW4/r5vAoD30t7ys8o5uXfIUJoLp8dUZNaAQGUl2VCyCJV5zPtq/mcEwU7mgPOGtFO/z+Ju8u7CzfiL0TYxDO9+8lPh8JihVPqw+3b0DiHv8N0n1IpJhRYNIPTJ+JjlCkg4lOCZVOnGItohgdZ+lEOHBJhGTEDO4TGPHoQkhWSON3/yj/tasoUqzMqHsOuTly0kSNcv9VC0M5PeVIYdw6kywbvQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQDCMd9J7NQpYfnWrO/QjmN2So9OsOXg70JTrL53Go3wTLnDtn7/2h1rcEHqIXrWpulR1eRYklFtDwFJ1C+tzPoi1kgjbWVb/IT0e1IQ6eg8RsVhoAu0hYKqzbbRyqYgT6kIcCMdrMRVK48L0oMwvKewDqZPRoEQi6bRIE2qJi+qI2zNW18WNHVmXYyPrY83RM6NJroMuEUxhyxTLmSADQZLeeFNjXCUdzZZFlLuGoje5zA9wUNSvLnV/6jSfswpJANVnzCZhFFSPBf1VaJ7x8OifXUfw7vOhgq/OYqMGF0iNe1oy00LcK/WMnyRCxOpAsKvz6VCzUYk/blHbozt1tRO"
+    }
+}
