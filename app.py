@@ -11,8 +11,14 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default-dev-secret-key-
 
 # Setup Database URI (SQLite used here for mockup, replace with PostgreSQL/MySQL in production)
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
-    'sqlite:///' + os.path.join(basedir, 'app.db')
+
+# Vercel serverless functions have a read-only filesystem except for /tmp
+if os.environ.get('VERCEL') == '1':
+    fallback_db = 'sqlite:////tmp/app.db'
+else:
+    fallback_db = 'sqlite:///' + os.path.join(basedir, 'app.db')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or fallback_db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize database with app
